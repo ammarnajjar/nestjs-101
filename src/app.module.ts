@@ -10,8 +10,8 @@ import { LoggerMiddleware } from './logger.middleware';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule implements NestModule{
+export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes(CatsController)
+    consumer.apply(LoggerMiddleware).forRoutes(CatsController);
   }
 }
