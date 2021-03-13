@@ -18,7 +18,7 @@ jobs:
           node-version: 14
 
       - name: Prepare
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint:ci
       - name: Tests
