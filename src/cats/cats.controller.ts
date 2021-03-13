@@ -5,6 +5,7 @@ import {
   Get,
   HttpCode,
   Param,
+  ParseIntPipe,
   Post,
   Put,
 } from '@nestjs/common';
@@ -23,7 +24,7 @@ export class CatsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Observable<Cat> {
+  findOne(@Param('id', ParseIntPipe) id: number): Observable<Cat> {
     return this.catsService.findOne(id);
   }
 
@@ -34,12 +35,12 @@ export class CatsController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() cat: Cat): Observable<Cat> {
+  update(@Param('id', ParseIntPipe) id: number, @Body() cat: Cat): Observable<Cat> {
     return this.catsService.update(id, cat);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string): Observable<Cat> {
+  delete(@Param('id', ParseIntPipe) id: number): Observable<Cat> {
     return this.catsService.delete(id);
   }
 }

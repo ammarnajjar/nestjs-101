@@ -12,8 +12,7 @@ export class CatsService {
     return of(this.cats);
   }
 
-  findOne(_id: string): Observable<Cat> {
-    const id = Number.parseInt(_id, 10);
+  findOne(id: number): Observable<Cat> {
     const catFound = this.cats.find((cat) => cat.id === id);
     return catFound ? of(catFound) : of(null);
   }
@@ -30,8 +29,7 @@ export class CatsService {
     return of(newCat);
   }
 
-  update(_id: string, newCat: Cat): Observable<Cat> {
-    const id = Number.parseInt(_id, 10);
+  update(id: number, newCat: Cat): Observable<Cat> {
     this.cats = this.cats.map((cat) =>
       cat.id === id
         ? ({
@@ -45,8 +43,7 @@ export class CatsService {
     return of(newCat);
   }
 
-  delete(_id: string): Observable<Cat> {
-    const id = Number.parseInt(_id, 10);
+  delete(id: number): Observable<Cat> {
     const catFound = this.cats.find((cat) => cat.id === id);
     this.cats = this.cats.filter((cat) => cat.id !== id);
     return of(catFound);
