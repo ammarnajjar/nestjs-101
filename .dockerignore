@@ -1,0 +1,14 @@
+.eslintrc.js
+.git
+.github
+.gitignore
+.husky
+.prettierrc
+Dockerfile
+LICENSE
+README.md
+coverage
+dist
+node_modules
+test
+build

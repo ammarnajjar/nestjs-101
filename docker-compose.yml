@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  nestjs:
+    container_name: nestjs
+    build: .
+    ports:
+      - 3100:3100
+
