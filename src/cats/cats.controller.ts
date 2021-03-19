@@ -37,9 +37,9 @@ export class CatsController {
   @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() cat: Cat,
+    @Body() createCatDto: CreateCatDto,
   ): Observable<Cat> {
-    return this.catsService.update(id, cat);
+    return this.catsService.update(id, createCatDto);
   }
 
   @Delete(':id')

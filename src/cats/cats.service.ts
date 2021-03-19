@@ -29,7 +29,7 @@ export class CatsService {
     return of(newCat);
   }
 
-  update(id: number, newCat: Cat): Observable<Cat> {
+  update(id: number, newCat: CreateCatDto): Observable<Cat> {
     this.cats = this.cats.map((cat) =>
       cat.id === id
         ? ({
@@ -40,7 +40,7 @@ export class CatsService {
           } as Cat)
         : cat,
     );
-    return of(newCat);
+    return of({ id, ...newCat });
   }
 
   delete(id: number): Observable<Cat> {
